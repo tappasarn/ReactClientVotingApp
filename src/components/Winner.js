@@ -7,3 +7,5 @@ export const Winner = (props) => {
         </div>
     );
 }
+
+Winner.displayName = 'Winner';

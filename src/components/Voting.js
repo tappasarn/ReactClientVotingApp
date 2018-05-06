@@ -1,6 +1,6 @@
 import React from 'react';
-import Winner from './Winner';
-import Vote from './Vote';
+import {Winner} from './Winner';
+import {Vote} from './Vote';
 
 export const Voting = (props) => {
     return (
@@ -11,3 +11,5 @@ export const Voting = (props) => {
         </div>
     );
 };
+
+Voting.displayName = 'Voting';

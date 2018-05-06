@@ -9,7 +9,7 @@ export const Vote = (props) => {
         return !!props.hasVoted;
     }
 
-    const hasVotedFor = () => {
+    const hasVotedFor = (entry) => {
         return props.hasVoted === entry;
     };
 
@@ -30,3 +30,5 @@ export const Vote = (props) => {
         </div>
     );
 }
+
+Vote.displayName = 'Vote';
