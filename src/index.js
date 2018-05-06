@@ -7,20 +7,17 @@ import { ResultsContainer } from './components/Results';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
+import {setState} from './action_creators';
 import io from 'socket.io-client';
 
 import './index.css';
 
 const store = createStore(reducer);
-store.dispatch({
-    type: 'SET_STATE',
-    state: {
-        vote: {
-            pair: ['Sunshine', '28 Days Later'],
-            tally: { Sunshine: 2 }
-        }
-    }
-});
+
+const socket = io(`${window.location.protocol}//${window.location.hostname}:8090`);
+socket.on('state', state =>
+  store.dispatch(setState(state))
+);
 
 const routes = <Route component={App}>
     <Route path="/results" component={ResultsContainer} />

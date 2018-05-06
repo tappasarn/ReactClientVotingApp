@@ -5,17 +5,17 @@ import {connect} from 'react-redux';
 
 export const Results = (props) => {
     const getPair = () => {
-        return this.props.pair || [];
+        return props.pair || [];
     };
     const getVotes = (entry) => {
-        if (this.props.tally && this.props.tally.has(entry)) {
-            return this.props.tally.get(entry);
+        if (props.tally && props.tally.has(entry)) {
+            return props.tally.get(entry);
         }
         return 0;
     };
     return (
-        this.props.winner ?
-            <Winner ref="winner" winner={this.props.winner} /> :
+        props.winner ?
+            <Winner ref="winner" winner={props.winner} /> :
             <div className="results">
                 <div className="tally">
                     {getPair().map(entry =>

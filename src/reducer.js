@@ -1,14 +1,35 @@
-import {Map} from 'immutable';
+import { Map, List } from 'immutable';
 
-// if this function is getting complicated we can separate it to core module just like on the server
+// if these functions are getting complicated we can separate it to core module just like on the server
 function setState(state, newState) {
-  return state.merge(newState);
+    return state.merge(newState);
 }
 
-export default function(state = Map(), action) {
-  switch (action.type) {
-  case 'SET_STATE':
-    return setState(state, action.state);
-  }
-  return state;
+function vote(state, entry) {
+    const currentPair = state.getIn(['vote', 'pair']);
+    if (currentPair && currentPair.includes(entry)) {
+        return state.set('hasVoted', entry);
+    } else {
+        return state;
+    }
+}
+
+function resetVote(state) {
+    const hasVoted = state.get('hasVoted');
+    const currentPair = state.getIn(['vote', 'pair'], List());
+    if (hasVoted && !currentPair.includes(hasVoted)) {
+        return state.remove('hasVoted');
+    } else {
+        return state;
+    }
+}
+
+export default function (state = Map(), action) {
+    switch (action.type) {
+        case 'SET_STATE':
+            return resetVote(setState(state, action.state));
+        case 'VOTE':
+            return vote(state, action.entry);
+    }
+    return state;
 }
