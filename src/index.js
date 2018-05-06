@@ -9,6 +9,10 @@ const pair = ['Trainspotting', '28 Days Later'];
 // note hasVoted could easily be a state of Voting component in React
 // but with Redux we explicitly want the component to be stateless
 ReactDOM.render(
-    <Voting pair={pair} hasVoted="Trainspotting"/>,
+    <Voting 
+        pair={pair} 
+        hasVoted="Trainspotting"
+        winner="Trainspotting"
+    />,
     document.getElementById('root')
 );
