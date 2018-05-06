@@ -93,7 +93,7 @@ ShallowWrapper {
       "props": Object {
         "winner": "option1",
       },
-      "ref": "winner",
+      "ref": null,
       "rendered": null,
       "type": [Function],
     },
@@ -117,7 +117,7 @@ ShallowWrapper {
         "props": Object {
           "winner": "option1",
         },
-        "ref": "winner",
+        "ref": null,
         "rendered": null,
         "type": [Function],
       },

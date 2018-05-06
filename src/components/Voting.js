@@ -6,7 +6,7 @@ export const Voting = (props) => {
     return (
         <div>
             {props.winner ?
-                <Winner ref="winner" winner={props.winner} /> :
+                <Winner winner={props.winner} /> :
                 <Vote {...props} />}
         </div>
     );
