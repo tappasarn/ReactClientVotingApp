@@ -15,7 +15,7 @@ export const Results = (props) => {
     };
     return (
         props.winner ?
-            <Winner ref="winner" winner={props.winner} /> :
+            <Winner winner={props.winner} /> :
             <div className="results">
                 <div className="tally">
                     {getPair().map(entry =>
